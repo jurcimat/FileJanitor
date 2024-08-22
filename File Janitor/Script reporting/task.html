@@ -1,0 +1,26 @@
+<div class="step-text">
+<p></p><h5 id="description">Description</h5><p>Listing files may seem not too impressive, so let's add more functionality to the script. In this stage, allow users to get a brief summary of the content of the selected directory, specifically the number of certain files and their total size. For this purpose, add a new option called <code class="java">report</code>.</p><p>For now, we are interested in finding files with the extensions <em>*.tmp</em>,<em> *.log</em> and <em>*.py</em>. Bash has some utilities that may help you find and count required files, calculate and sum up their size and output the results in a desired format, so don't hesitate to check help files available in your operating system. Let's get going!</p><h5 id="objectives">Objectives</h5><ul><li><p>In addition to the existing functionality, make the script accept the <code class="java">report</code> option. If the <code class="java">report</code> option is not followed by a file path, the script must print <code class="java">The current directory contains:</code> and display a summary of <em>*.tmp</em>, <em>*.log</em> and <em>*.py</em> files located inside, including hidden files. If the file path is specified, the script must verify that the file path exists and refers to a directory. If not, print the appropriate error: <code class="java">%PATH% is not found</code> in the case the file path specified does not exist or <code class="java">%PATH% is not a directory</code> in the case the file path does not refer to a directory. When everything is okay, print <code class="java">%PATH% contains:</code> and display a list of <em>*.tmp</em>, <em>*.log</em> and <em>*.py</em> located at the specified file path. In each case, <code class="java">%PATH%</code> means the file path specified by the user;</p></li><li><p>Print the summary in three lines. The first line must contain information about <em>.tmp</em> files in the following format: <code class="java">%n tmp file(s), with total size of %d bytes</code>, where <code class="java">%n</code> is the number of files found and <code class="java">%d</code> is their exact size in bytes. The second and the third lines must contain the summaries of <em>.log</em> and .<em>py</em> files, respectively, in the exactly same format as the first line. Do not count files in subdirectories.</p></li></ul><h5 id="example">Example</h5><p>The line starting with <code class="java">$</code> followed by a space represents the command in the terminal input. Note that it is not a part of the script output.</p><p><em>Script executed with the report option, no file path is provided:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh report
+File Janitor, 2022
+Powered by Bash
+
+The current directory contains:
+1 tmp file(s), with total size of 341 bytes
+0 log file(s), with total size of 0 bytes
+0 py file(s), with total size of 0 bytes</code></pre><p><em>Script executed with the report option, the file path is ~/file-dump:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh report ~/file-dump
+File Janitor, 2022
+Powered by Bash
+
+~/file-dump contains:
+7 tmp file(s), with total size of 3489 bytes
+0 log file(s), with total size of 0 bytes
+1 py file(s), with total size of 325 bytes</code></pre><p><em>Script executed with the report option, the non-existing file path is some-directory:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh report some-directory
+File Janitor, 2022
+Powered by Bash
+
+some-directory is not found</code></pre><p><em>Script executed with the report option, and the file path is README.md:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh report README.md
+File Janitor, 2022
+Powered by Bash
+
+README.md is not a directory</code></pre>
+
+</div>

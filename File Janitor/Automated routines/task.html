@@ -1,0 +1,30 @@
+<div class="step-text">
+<p></p><h5 id="description">Description</h5><p>It's time to teach the script to clean up directories. With time, the working directory may be cluttered with temporary files, application logs, and other files that you might want to delete or move to another directory. Fortunately, Bash allows us to automate such tasks without much effort by writing a script.</p><p>In this stage, deal with three types of files: temporary files which need to be deleted, log files which need to be archived and compressed, and python scripts which must be moved to a special directory. Add the new option <code class="java">clean</code> to the script to perform all these actions!</p><h5 id="objectives">Objectives</h5><ul><li><p>Accept the <code class="java">clean</code> option. If the <code class="java">clean</code> option is not followed by a file path, the script must print <code class="java">Cleaning the current directory...</code> If a file path is specified, the script must verify that the file path exists and refers to a directory. If not, print the appropriate error: <code class="java">%PATH% is not found</code> if it doesn't exist or <code class="java">%PATH% is not a directory</code> if it's not a directory. If the file path is a valid directory, print <code class="java">Cleaning %PATH%...</code> In each case, <code class="java">%PATH%</code> means the file path specified by the user;</p></li><li><p>Delete any <strong>*.log</strong> files from the designated directory that were last modified more than 3 days ago. Before finding and deleting such files, the script must print <code class="java">Deleting old log files...</code> and after the job is done — <code class="java">%n files have been deleted</code>, where <code class="java">%n</code> is the number of the deleted old log files;</p></li><li><p>Delete any <strong>*.tmp</strong> files in the designated directory. Before deleting these files, the script must print <code class="java">Deleting temporary files...</code> and after the job is done, it must print <code class="java">%n files have been deleted</code>, where <code class="java">%n</code> is the number of the deleted temporary files;</p></li><li><p>If there are <strong>*.py</strong> files in the specified directory, move them into the <code class="java">%PATH%/python_scripts</code> subdirectory. If such a subdirectory doesn't exist, the script must create it. Before moving the files, the script must print <code class="java">Moving python files...</code> and after the job is done, it must print <code class="java">%n files have been moved</code>, where <code class="java">%n</code> is the number of the moved python scripts files. Make sure that the script doesn't create the subdirectory if it doesn't move any files to it.</p></li></ul><h5 id="example">Example</h5><p>The line starting with <code class="java">$</code> followed by a space represents the command in the terminal input. Note that it is not a part of the script output.</p><p><em>Script executed with the clean option, no file path provided:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh clean
+File Janitor, 2022
+Powered by Bash
+
+Cleaning the current directory...
+Deleting old log files...  done! 2 files have been deleted
+Deleting temporary files...  done! 7 files have been deleted
+Moving python files...  done! 1 files have been moved
+
+Clean up of the current directory is complete!</code></pre><p><em>Script executed with the clean option, the file path is ~/idea_projects/mega_project/logs:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh clean ~/idea_projects/mega_project/logs
+File Janitor, 2022
+Powered by Bash
+
+Cleaning /home/linux_user/idea_projects/mega_project/logs...
+Deleting old log files...  done! 12 files have been deleted
+Deleting temporary files...  done! 0 files have been deleted
+Moving python files...  done! 0 files have been moved
+
+Clean up of /home/linux_user/idea_projects/mega_project/logs is complete!</code></pre><p><em>Script executed with the clean option, the non-existing file path is some-directory:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh clean some-directory
+File Janitor, 2022
+Powered by Bash
+
+some-directory is not found</code></pre><p><em>Script executed with the clean option, the file path is README.md:</em></p><pre><code class="language-no-highlight">$ ./file-janitor.sh clean README.md
+File Janitor, 2022
+Powered by Bash
+
+README.md is not a directory</code></pre>
+
+</div>

@@ -1,0 +1,15 @@
+type: remote_edu
+files:
+  - name: file-janitor.sh
+    visible: true
+    learner_created: false
+  - name: test/FileJanitorStage5Test.java
+    visible: false
+    learner_created: false
+feedback_link: https://hyperskill.org/projects/330/stages/1854/implement#comment
+check_profile: hyperskill_java
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: "Thu, 22 Aug 2024 08:33:51 UTC"
+record: -1

@@ -1,0 +1,31 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>We are writing a sophisticated script with multiple options, so it would be a good idea to add some reference so that users can learn how to use it. For this, add the option to display the help section! To avoid the clutter, place the help information in a separate file and display it on demand.</p>
+<p>As you already know, there are some utilities to display the content of a file, and you may choose any of them. However, make sure you output the whole content of the help file, not just a couple of lines.</p>
+<h5 id="objectives">Objectives</h5>
+<ul>
+<li>Modify the script so that if it is executed with the <code class="java">help</code> option, it displays the content of the available help file in addition to the information about itself. You do not need to create the help file yourself, it already exists in the same directory where the script is and has the name <em>file-janitor-help.txt</em>;</li>
+<li>If the script is executed without any option or if the option is not <code class="java">help</code>, the script must simply display the information about itself like in the previous stage.</li>
+</ul>
+<h5 id="example">Example</h5>
+<p>The line starting with <code class="java">$</code> followed by a space represents the command in the terminal input. Note that it is not a part of the script output.</p>
+<p><em>Script executed with no options:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh
+File Janitor, 2022
+Powered by Bash</code></pre>
+<p><em>Script executed with help:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh help
+File Janitor, 2022
+Powered by Bash
+
+File Janitor is a tool to discover files and clean directories
+
+Usage: file-janitor [option] [file_path]
+
+    options:
+        help        displays this help file</code></pre>
+<p><em>Script executed with another option:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh -h
+File Janitor, 2022
+Powered by Bash</code></pre>
+</div>

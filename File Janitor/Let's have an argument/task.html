@@ -1,0 +1,53 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>Let's teach the script to display the content of directories! But first, recommend reading the help file if users who run the script don't know how to use it, they are advised to read the help file. A viable solution is to show a hint to run the script with the help option if the user runs the script incorrectly.</p>
+<p>We are going to implement this feature by introducing a new option: <code class="java">list</code>. Users can run the script with that option to list files and subdirectories in a directory they may indicate after that option. Furthermore, you could give users freedom and let them run the script with some defaults: when no directory is indicated, the script will list the content of the current directory.</p>
+<h5 id="objectives">Objectives</h5>
+<ul>
+<li>Modify the script so that if it is executed without any options or with an invalid option, it shows a hint to use the <code class="java">help</code> option: <code class="java">Type %SCRIPT_NAME% help to see available options</code> where <code class="java">%SCRIPT_NAME%</code> is the name of the script file;</li>
+<li>Make the script accept the <code class="java">list</code> option. If the <code class="java">list</code> option is not followed by a file path, the script must print <code class="java">Listing files in the current directory</code> and display a list of those files. If the file path is specified, the script must verify that the file path exists and refers to a directory. If not, print the appropriate error: <code class="java">%PATH% is not found</code> in the case the file path specified does not exist or <code class="java">%PATH% is not a directory</code> in the case the file path does not refer to a directory. When everything is correct, print <code class="java">Listing files in %PATH%</code> and display a list of files at the specified file path. In each case, <code class="java">%PATH%</code> means the file path specified by the user;</li>
+<li>When the <code class="java">list</code> option is used, the files, including directories, must be listed in the following format: the list of files must contain only filenames sorted by name in lexicographical order, each on a new line, including the files which names begin with <code class="java">.</code>, such as <code class="java">.gitignore</code> or <code class="java">.cache</code>.</li>
+</ul>
+<h5 id="example">Example</h5>
+<p>The line starting with <code class="java">$</code> followed by a space represents the command in the terminal input. Note that it is not a part of the script output.</p>
+<p><em>Script executed with no options or with an invalid option:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh
+File Janitor, 2022
+Powered by Bash
+
+Type file-janitor.sh help to see available options</code></pre>
+<p><em>Script executed with the list option, no file path provided:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh list
+File Janitor, 2022
+Powered by Bash
+
+Listing files in the current directory
+
+.git
+README.md
+file-janitor-help.txt
+file-janitor.sh</code></pre>
+<p><em>Script executed with the <code class="java">list</code> option, and the file path is ~/.ssh:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh list ~/.ssh
+File Janitor, 2022
+Powered by Bash
+
+Listing files in ~/.ssh
+
+id_ed25519
+id_ed25519.pub
+known_hosts</code></pre>
+<p><em>Script executed with the list option, and the non-existing file path is some-directory:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh list some-directory
+File Janitor, 2022
+Powered by Bash
+
+some-directory is not found</code></pre>
+<p><em>Script executed with the list option, and the file path is README.md:</em></p>
+<pre><code class="language-no-highlight">$ ./file-janitor.sh list README.md
+File Janitor, 2022
+Powered by Bash
+
+README.md is not a directory</code></pre>
+
+</div>

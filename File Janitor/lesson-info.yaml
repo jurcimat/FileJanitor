@@ -1,0 +1,8 @@
+type: framework
+content:
+  - "Hello, user"
+  - Helpful instructions
+  - Let's have an argument
+  - Script reporting
+  - Automated routines
+current_task: 4
